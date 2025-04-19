@@ -6,7 +6,7 @@
 #    By: aryamamo <aryamamo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/19 10:06:20 by aryamamo          #+#    #+#              #
-#    Updated: 2025/04/19 10:15:21 by aryamamo         ###   ########.fr        #
+#    Updated: 2025/04/19 19:58:45 by aryamamo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,5 +31,8 @@ fclean: clean
 	rm -f $(NAME) $(OBJS)
 
 re:fclean all
+
+run: $(NAME)
+	./$(NAME)
 
 .PHONY: all clean fclean re

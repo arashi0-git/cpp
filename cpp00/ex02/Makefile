@@ -6,7 +6,7 @@
 #    By: aryamamo <aryamamo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/19 12:20:25 by aryamamo          #+#    #+#              #
-#    Updated: 2025/04/19 12:21:23 by aryamamo         ###   ########.fr        #
+#    Updated: 2025/04/19 19:57:25 by aryamamo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,4 +30,9 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+run: $(NAME)
+	./$(NAME)
+
+
+
+.PHONY: all clean fclean re run
