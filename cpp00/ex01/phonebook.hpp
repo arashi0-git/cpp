@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aryamamo <aryamamo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/16 17:30:15 by aryamamo          #+#    #+#             */
-/*   Updated: 2025/04/17 15:44:16 by aryamamo         ###   ########.fr       */
+/*   Created: 2025/04/17 16:27:11 by aryamamo          #+#    #+#             */
+/*   Updated: 2025/04/18 19:33:05 by aryamamo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef phonebook_HPP
+#define phonebook_HPP
+
+#include "contact.hpp"
 #include <iostream>
-#include <string>
-#include <cctype>
+#include <iomanip>
 
-char ft_toupper(char c){
-  if(c>='a'&&c<='z')
-    return ((c -=32));
-  return (c);
-}
+class PhoneBook {
+public:
+    PhoneBook();
+    void addcontact(const Contact& contact);
+    void displaycontacts() const;
+    void displaydetails(int index) const;
+    int gettotalcontacts() const;
 
-int main(int ac, char *av[])
-{
-  if (ac > 1){
-    for(int i =1; i<ac;++i){
-        for(int j =0; av[i][j]!= 0; ++j){
-          std::cout << ft_toupper(av[i][j]);
-      }
-    }
-    std::cout << std::endl;
-  }
-  else {
-    std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-  }
-  return 0;
-}
+private:
+    Contact contacts[8];
+    int index;
+    int totalcontacts;
+
+};
+
+#endif
