@@ -177,3 +177,33 @@ struct Node {
 動的にオブジェクトを作る/破棄する必要がある | ポインタ
 安全で読みやすいコードを書きたい | 参照
 複雑なデータ構造を作りたい（ツリー、リスト） | ポインタ
+
+## ファイル入出力
+```
+ std::ifstream inputfile(filename.c_str());
+    if(!inputfile) {
+        std::cerr << "Error opening file: " << filename << std::endl;
+        return 1;
+    }
+    std::string content((std::istreambuf_iterator<char>(inputfile)),
+                        std::istreambuf_iterator<char>());
+    inputfile.close();
+```
+## ifstreamで受取、contentでファイル全体の内容を1文字ずつ読み込んで、まるごと1つのstd::stringに変換する
+```
+hello
+world
+```
+の場合
+```
+"hello\nworld"
+```
+となる  
+行ごとに取得したいときはgetline()を使う
+```
+std::string line;
+while (std::getline(inputFile, line)) {
+    // line は 1行ずつ（改行は含まれない）
+}
+```
+
