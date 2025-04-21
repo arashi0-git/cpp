@@ -93,3 +93,16 @@ delete z; // 手動でメモリを解放、デストラクタが呼ばれる
 | 数が少ない or 軽い処理 | ✅ OK | ✖ 不必要なヒープ管理になる |
 | 大量に作る or 長く使う可能性あり | ✖ スタックオーバーフローの危険 | ✅ 安全 |
 | 明示的にメモリ解放したい | ✖（自動で解放） | ✅（deleteが必要）|
+
+## newとdelete
+```
+Zombie* horde = new Zombie[5];  // ← Zombie() が5回呼ばれる
+...
+delete[] horde;                // ← Zombie::~Zombie() が5回呼ばれる
+```
+#### 必ずnewで複数作成したときは
+```
+delete[] horde;
+delete horde;  // ← NG！
+```
+#### で開放する必要あり。
