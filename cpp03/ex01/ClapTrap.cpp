@@ -39,5 +39,5 @@ void ClapTrap::beRepaired(unsigned int amount) {
     if(_hitPoints > 10) {
         _hitPoints = 10;
     }
-    std::cout << "ClapTrap " << _name << " repairs itself for " << amount << " points! Hit points mow: " << _hitPoints << std::endl;
+    std::cout << "ClapTrap " << _name << " repairs itself for " << amount << " points! Hit points now: " << _hitPoints << std::endl;
 }
