@@ -17,7 +17,7 @@ Dog &Dog::operator=(const Dog &rhs) {
     std::cout << "[Dog] Copy assignment operator called" << std::endl;
     if(this != &rhs){
         type = rhs.type;
-        if(brain)
+        if(brain) 
             delete brain;
         brain = new Brain(*rhs.brain);
     }
@@ -26,6 +26,7 @@ Dog &Dog::operator=(const Dog &rhs) {
 
 Dog::~Dog() {
     std::cout << "Dog destructor called" << std::endl;
+    delete brain;
 }
 
 void Dog::makeSound() const {

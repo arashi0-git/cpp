@@ -3,7 +3,7 @@ CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -Iincs
 
 
-NAME		= animal
+NAME		= brain
 
 
 SRCDIR		= srcs
@@ -13,6 +13,7 @@ INCDIR		= incs
 
 SRCS		= $(SRCDIR)/main.cpp \
 				$(SRCDIR)/Animal.cpp \
+				$(SRCDIR)/Brain.cpp \
 				$(SRCDIR)/Dog.cpp \
 				$(SRCDIR)/Cat.cpp \
 				$(SRCDIR)/WrongAnimal.cpp \

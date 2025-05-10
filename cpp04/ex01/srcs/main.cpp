@@ -5,38 +5,45 @@
 #include "WrongCat.hpp"
 
 int main() {
-    const Animal *meta = new Animal();
-    std::cout << "-------------------Dog--------------------" << std::endl;
-    const Animal *dog = new Dog();
-    std::cout << "-------------------Cat--------------------" << std::endl;
-    const Animal *cat = new Cat();
+    const int size = 4;
+    Animal *animals[size];
 
-    std::cout << "-------------------GetType--------------------" << std::endl;
-    std::cout << dog->getType() << " " << std::endl;
-    std::cout << cat->getType() << " " << std::endl;
+    std::cout << "\n=== Creating Animals ===" << std::endl;
+    for(int i = 0; i < size; ++i) {
+        if(i < size / 2) 
+            animals[i] = new Dog();
+        else
+            animals[i] = new Cat();
+    }
 
-    std::cout << "-------------------MakeSound--------------------" << std::endl;
-    dog->makeSound();
-    cat->makeSound();
-    meta->makeSound();
+    std::cout << "\n=== Making Sounds ===" << std::endl;
+    for(int i = 0; i < size; ++i) {
+        animals[i]->makeSound();
+    }
 
-    std::cout << "-------------------Destructor--------------------" << std::endl;
-    delete meta;
-    delete dog;
-    delete cat;
+    std::cout << "\n=== Deleting Animals ===" << std::endl;
+    for(int i = 0; i < size; ++i) {
+        delete animals[i];
+    }
 
-    std::cout << "-------------------Wrong Animal--------------------" << std::endl;
+    std::cout << "\n=== Deep Copy Test ===" << std::endl;
+    {
+        Dog original;
+        original.setIdea(0, "Fetch the ball");
+        Dog copy = original;
 
-    const WrongAnimal *Wrongmeta = new WrongAnimal();
-    const WrongAnimal *wrongcat = new WrongCat();
+        std::cout << "Original Dog Idea: " << original.getIdea(0) << std::endl;
+        std::cout << "Copied Dog Idea: " << copy.getIdea(0) << std::endl;
 
-    std::cout << "-------------------MakeSound--------------------" << std::endl;
-    Wrongmeta->makeSound();
-    wrongcat->makeSound();
-
-    std::cout << "-------------------Delete--------------------" << std::endl;
-    delete Wrongmeta;
-    delete wrongcat;
-
+        copy.setIdea(0, "Chase the cat");
+        std::cout << "After modifying copy:" << std::endl;
+        std::cout << "Original Dog Idea: " << original.getIdea(0) << std::endl;
+        std::cout << "Copied Dog Idea: " << copy.getIdea(0) << std::endl;
+    }
     return 0;
 }
+
+// deep copy start at line 33 
+// original and copy are two different instances of the Dog class.
+// on memory they are different
+// but they have the same idea at the beginning
