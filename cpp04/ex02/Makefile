@@ -3,7 +3,7 @@ CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -Iincs
 
 
-NAME		= animal
+NAME		= abstract
 
 
 SRCDIR		= srcs
@@ -12,7 +12,9 @@ INCDIR		= incs
 
 
 SRCS		= $(SRCDIR)/main.cpp \
+				$(SRCDIR)/AAnimal.cpp \
 				$(SRCDIR)/Animal.cpp \
+				$(SRCDIR)/Brain.cpp \
 				$(SRCDIR)/Dog.cpp \
 				$(SRCDIR)/Cat.cpp \
 				$(SRCDIR)/WrongAnimal.cpp \
@@ -31,6 +33,7 @@ $(OBJSDIR)/%.o: $(SRCDIR)/%.cpp
 
 clean:
 	rm -f $(OBJSDIR)/main.o\
+	rm -f $(OBJSDIR)/AAnimal.o\
 	rm -f $(OBJSDIR)/Animal.o\
 	rm -f $(OBJSDIR)/Dog.o\
 	rm -f $(OBJSDIR)/Cat.o\

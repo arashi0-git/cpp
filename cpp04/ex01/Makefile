@@ -33,6 +33,7 @@ $(OBJSDIR)/%.o: $(SRCDIR)/%.cpp
 clean:
 	rm -f $(OBJSDIR)/main.o\
 	rm -f $(OBJSDIR)/Animal.o\
+	rm -f $(OBJSDIR)/Brain.o\
 	rm -f $(OBJSDIR)/Dog.o\
 	rm -f $(OBJSDIR)/Cat.o\
 	rm -f $(OBJSDIR)/WrongAnimal.o\

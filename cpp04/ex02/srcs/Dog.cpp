@@ -7,11 +7,11 @@ Dog::Dog() {
     brain = new Brain();
 }
 
-Dog::Dog(const Dog &other) : Animal(other) {
-    std::cout << "[Dog] Copy constructor called" << std::endl;
-    brain = new Brain(*other.brain);
-    type = other.type;
-}
+// Dog::Dog(const Dog &other) : Animal(other) {
+//     std::cout << "[Dog] Copy constructor called" << std::endl;
+//     brain = new Brain(*other.brain);
+//     type = other.type;
+// }
 
 Dog &Dog::operator=(const Dog &rhs) {
     std::cout << "[Dog] Copy assignment operator called" << std::endl;
@@ -26,6 +26,7 @@ Dog &Dog::operator=(const Dog &rhs) {
 
 Dog::~Dog() {
     std::cout << "Dog destructor called" << std::endl;
+    delete brain;
 }
 
 void Dog::makeSound() const {
