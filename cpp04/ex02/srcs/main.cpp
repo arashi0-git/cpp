@@ -1,4 +1,5 @@
 #include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongAnimal.hpp"
@@ -6,6 +7,7 @@
 
 int main() {
     std::cout << "Creating a Dog and a Cat..." << std::endl;
+
     const AAnimal *dog = new Dog();
     const AAnimal *cat = new Cat();
 
@@ -19,3 +21,5 @@ int main() {
 
     return 0;
 }
+
+// const AAnimal *meta = new AAnimal(); //this cannot compile

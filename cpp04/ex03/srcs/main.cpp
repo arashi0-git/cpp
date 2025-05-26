@@ -19,7 +19,6 @@ AMateria* tmp;
 tmp = src->createMateria("ice");
 std::cout << "-------------------------" << std::endl;
 me->equip(tmp);
-
 tmp = src->createMateria("cure");
 me->equip(tmp);
 std::cout << "-------------------------" << std::endl; 
@@ -34,3 +33,6 @@ delete me;
 delete src;
 return 0;
 }
+
+// line 11 to 21 is the initialization of the MateriaSource object
+// line 23 to 31 is the initialization of the Character object

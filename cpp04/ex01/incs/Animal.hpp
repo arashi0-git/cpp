@@ -10,6 +10,9 @@ class Animal {
     public:
         Animal();
         virtual ~Animal();
+        Animal(const Animal &other);
+        Animal &operator=(const Animal &rhs);
+        
         std::string getType() const;
         virtual void makeSound() const;
 };

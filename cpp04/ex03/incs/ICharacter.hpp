@@ -16,3 +16,5 @@ public:
 };
 
 #endif
+
+// This is a almost same as the interface but interface is not in C++

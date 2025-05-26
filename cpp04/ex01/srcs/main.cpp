@@ -1,8 +1,8 @@
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#include "../incs/Animal.hpp"
+#include "../incs/Dog.hpp"
+#include "../incs/Cat.hpp"
+#include "../incs/WrongAnimal.hpp"
+#include "../incs/WrongCat.hpp"
 
 int main() {
     const int size = 4;
@@ -25,6 +25,7 @@ int main() {
     for(int i = 0; i < size; ++i) {
         delete animals[i];
     }
+
 
     std::cout << "\n=== Deep Copy Test ===" << std::endl;
     {
