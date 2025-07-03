@@ -56,3 +56,58 @@ class Bureaucrat {
 };
 ```
 という形で、Bureaucratにだけ関係する例外を内部に閉じ込めている
+
+## cpp02の構成イメージ
+```
+                AForm (抽象クラス)
+                     ↑
+   ┌────────────┬──────────────┬────────────────────┐
+   ↓            ↓              ↓                    ↓
+Shrubbery  Robotomy     Presidential
+ Creation   Request         Pardon
+```
+
+```
+                  +------------------+
+                  |     Intern       |
+                  +------------------+
+                  | - none           |
+                  +------------------+
+                  | +makeForm(name, target): AForm* |
+                  +------------------+
+                            |
+                            | uses
+                            v
+                  +------------------+
+                  |      AForm       |   <== 抽象クラス（実体化不可）
+                  +------------------+
+                  | # _target        |
+                  | # _isSigned      |
+                  | # _signGrade     |
+                  | # _execGrade     |
+                  +------------------+
+                  | +beSigned(Bureaucrat)        |
+                  | +execute(Bureaucrat) = 0     | <-- 純粋仮想関数
+                  +------------------+
+                          ^        ^         ^
+                          |        |         |
+          +----------------+     +--------------------+     +-----------------------+
+          | ShrubberyCreationForm | RobotomyRequestForm | PresidentialPardonForm |
+          +------------------------+---------------------+------------------------+
+          | 実装: execute()        | 実装: execute()     | 実装: execute()        |
+          +------------------------+---------------------+------------------------+
+
+                                 |
+                                 |
+                         used by ↓
+
+                    +-------------------+
+                    |    Bureaucrat     |
+                    +-------------------+
+                    | - _name           |
+                    | - _grade          |
+                    +-------------------+
+                    | +signForm(AForm&)     |
+                    | +executeForm(AForm&)  |
+                    +-------------------+
+```

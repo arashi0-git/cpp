@@ -3,29 +3,44 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include <ctime>
+#include <cstdlib>
 
 int main() {
     try {
-        Bureaucrat b("ash", 2);
-        ShrubberyCreationForm f1("home");
-        RobotomyRequestForm f2("Bender");
-        PresidentialPardonForm f3("Ford");
+        std::srand(std::time(NULL));
 
-        std::cout << b << std::endl;
-        std::cout << f1 << std::endl;
-        std::cout << f2 << std::endl;
-        std::cout << f3 << std::endl;
+        Bureaucrat alice("Alice", 1);
+        Bureaucrat bob("Bob", 50);
+        Bureaucrat charlie("Charlie", 140);
 
-        b.signForm(f1);
-        b.signForm(f2);
-        b.signForm(f3);
+        ShrubberyCreationForm shrub("garden");
+        RobotomyRequestForm robot("Bender");
+        PresidentialPardonForm pardon("Form Prefect");
 
-        b.executeForm(f1);
-        b.executeForm(f2);
-        b.executeForm(f3);
+        std::cout << "\n--- Signing forms ---" << std::endl;
 
-    } catch (std::exception &e) {
-        std::cout << e.what() << std::endl;
+        charlie.signForm(shrub);
+        bob.signForm(robot);
+        alice.signForm(pardon);
+
+        std::cout << "\n--- Excuting forms ---" << std::endl;
+
+        charlie.signForm(shrub);
+        bob.executeForm(robot);
+        alice.executeForm(robot);
+        alice.executeForm(pardon);
+
+        std::cout << "\n--- Failure cases ---" << std::endl;
+
+        Bureaucrat toolow("LowRank", 150);
+        ShrubberyCreationForm notSigned("unapproved");
+        toolow.signForm(pardon);
+        toolow.executeForm(shrub);
+        toolow.executeForm(notSigned);
+    } catch {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+        return 1;
     }
     return 0;
 }

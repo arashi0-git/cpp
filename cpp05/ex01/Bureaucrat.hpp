@@ -17,17 +17,14 @@ class Bureaucrat {
         Bureaucrat &operator=(const Bureaucrat &other);
         ~Bureaucrat();
 
-        // geters
         const std::string &getName() const;
         int getGrade() const;
 
-        // grade management
         void incrementGrade();
         void decrementGrade();
 
         void signForm(Form &form) const;
 
-        // exceptions
         class GradeTooHighException : public std::exception {
             public:
                 virtual const char *what() const throw();

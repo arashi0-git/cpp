@@ -36,7 +36,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
         return;
     }
 
-    file << "      🌳\n"
+    file << "       🌳\n"
         << "      🌳🌳\n"
         << "     🌳🌳🌳\n"
         << "    🌳🌳🌳🌳\n"

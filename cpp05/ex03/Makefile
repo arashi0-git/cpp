@@ -1,6 +1,6 @@
-NAME = AForm
+NAME = Intern
 
-SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 
 OBJS_DIR = OBJS
 OBJS = $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
