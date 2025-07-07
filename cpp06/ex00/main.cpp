@@ -6,8 +6,8 @@ int main(int ac, char **av) {
         return 1;
     }
     std::string input = av[1];
-    static int Type = Conversion::CheckArg(input);
+    int Type = Conversion::CheckArg(input);
 
+    Conversion::Convert(input, Type);
     return 0;
-
 }

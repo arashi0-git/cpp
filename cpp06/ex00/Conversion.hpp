@@ -22,6 +22,7 @@ class Conversion {
         static void ConvertFromInt(int n);
         static void ConvertFromDouble(double d);
         static void ConvertFromFloat(float f);
+        static void ConvertFromPseudo(const std::string &arg);
     public:
         static int CheckArg(const std::string &arg);
         static void Convert(const std::string &arg, int type);
