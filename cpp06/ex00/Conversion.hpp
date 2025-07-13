@@ -16,6 +16,11 @@ enum Type {
 
 class Conversion {
     private:
+        Conversion();
+        Conversion(const Conversion &other);
+        Conversion &operator=(const Conversion &other);
+        ~Conversion();
+        
         static bool IsInt(const std::string &arg);
         static bool IsDecimal(const std::string &arg);
         static void ConvertFromChar(char c);

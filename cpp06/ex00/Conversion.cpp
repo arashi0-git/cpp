@@ -1,5 +1,16 @@
 #include "Conversion.hpp"
 
+Conversion() {}
+
+Conversion::(const Conversion &other) { (void)other}
+
+Conversion &Conversion::operator=(const Conversion &other) { 
+    (void)other
+    return *this;
+}
+
+Conversion::~Conversion() {}
+
 bool Conversion::IsInt(const std::string &arg) {
     size_t i = 0;
     if (arg[i] == '+' || arg[i] == '-')
