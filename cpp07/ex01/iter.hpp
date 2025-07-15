@@ -3,7 +3,7 @@
 
 #include <stdlib.h>
 #include <iostream>
-#include <algorithm>
+// #include <algorithm>
 
 template <class T, class F>
 void iter(T *address, size_t length, F func) {

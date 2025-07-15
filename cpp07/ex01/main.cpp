@@ -12,10 +12,10 @@ void Comparenum(const int a) {
     }
 }
 
-void Upperstring(std::string &arg) {
-    std::transform(arg.begin(), arg.end(), arg.begin(), ::toupper);
-    std::cout << "変換後の文字列 (元の文字列): " << arg << std::endl;
-}
+// void Upperstring(std::string &arg) {
+//     std::transform(arg.begin(), arg.end(), arg.begin(), ::toupper);
+//     std::cout << "変換後の文字列 (元の文字列): " << arg << std::endl;
+// }
 
 void PrintString(const std::string &arg) {
     std::cout << "String: " << arg << std::endl;
@@ -27,6 +27,7 @@ int main() {
     iter(array, 5, Comparenum);
 
     std::string strings[] = {"hello", "world", "hello World"};
-    iter(strings, 3, Upperstring);
     iter(strings, 3, PrintString);
 }
+
+    // iter(strings, 3, Upperstring);
