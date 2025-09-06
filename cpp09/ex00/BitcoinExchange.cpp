@@ -38,19 +38,22 @@ bool BitcoinExchange::loadDatabase(const std::string &database) {
     }
 
     std::string line;
-    std::getline(datafile, line);
+    if (!std::getline(datafile, line) || line != "date,exchange_rate") {
+        std::cerr << "Error: invalid database format" << std::endl;
+        return false;
+    }
     while (std::getline(datafile, line)) {
         size_t pos = line.find(',');
         if (pos == std::string::npos)
             continue;
-        
+
         std::string date = trim(line.substr(0, pos));
         if (date == "")
             continue;
         std::string rate = trim(line.substr(pos + 1));
         if (rate == "")
             continue;
-        
+
         float ratevalue;
         if (!ft_stof(rate, ratevalue)) {
             std::cerr << "Error: not a number." << std::endl;
@@ -86,8 +89,10 @@ bool valid_date(const std::string &date) {
     int month = atoi(date.substr(5, 2).c_str());
     int day = atoi(date.substr(8, 2).c_str());
 
-    if (month < 1 || month > 12 || day < 1 || day > 31)
+    if (month < 1 || month > 12 || day < 1 || day > 31) {
+        std::cerr << "Error: bad input => " << date << std::endl;
         return false;
+    }
     return true;
 }
 
